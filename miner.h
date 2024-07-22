@@ -130,6 +130,14 @@ static inline void le32enc(void *pp, uint32_t x)
 
 #define USER_AGENT PACKAGE_NAME "/" PACKAGE_VERSION
 
+typedef struct {
+    uint64_t nTime; // Block time in Unix timestamp
+} CBlockHeader;
+
+// Function prototypes
+void InitializeBlockHeader(uint64_t timestamp);
+uint64_t GetBlockTime(void);
+
 void sha256_init(uint32_t *state);
 void sha256_transform(uint32_t *state, const uint32_t *block, int swap);
 void sha256d(unsigned char *hash, const unsigned char *data, int len);
